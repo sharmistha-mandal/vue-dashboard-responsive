@@ -6,7 +6,7 @@
       <div class="main__title">
         <img src="../assets/hello.svg" alt="hello" />
         <div class="main__greeting">
-          <h1>Hello,</h1>
+          <h1>Hello, {{!username?'Anonymous':username}}</h1>
           <p>Welcome to your admin dashboard</p>
         </div>
       </div>
@@ -60,8 +60,7 @@
               <h1>Daily Reports</h1>
               <p>London, UK</p>
             </div>
-            <!-- <i class="fa fa-usd" aria-hidden="true"></i> -->
-            <ToggleBtn />
+            <i class="fa fa-gbp" aria-hidden="true"></i> 
           </div>
           <Chart />
         </div>
@@ -104,14 +103,21 @@
 </template>
 
 <script>
-import ToggleBtn from "./ToggleBtn.vue";
 import Chart from "./Chart.vue";
 
 export default {
   name: "Main",
   components: {
-    Chart,
-    ToggleBtn
+    Chart
+  },
+  data() {
+    return {
+      username: null,
+    };
+  },
+
+  async created() {
+    this.username = localStorage.getItem('user');
   },
 };
 </script>

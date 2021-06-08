@@ -1,12 +1,24 @@
 <template>
   <div id="app">
-    <router-view :user="user" />
+    <div v-if="user">
+      <router-view :user="user" />
+    </div>
+    <div v-else>
+      <!-- [ Login ] start -->
+      <Login />
+      <!-- [ Login ] end -->
+    </div>
   </div>
 </template>
 
 <script>
+import Login from './views/Login.vue'
+
 export default {
   name: "App",
+  components: {
+    Login
+  },
   
   data() {
     return {
@@ -14,8 +26,8 @@ export default {
     };
   },
 
-  async created() {
-    this.user = localStorage.getItem('user');
+  mounted() {
+    this.user = 'admin';
   },
 
 };

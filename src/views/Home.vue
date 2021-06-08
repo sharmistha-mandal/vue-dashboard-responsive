@@ -10,7 +10,6 @@
 import Navbar from '../components/Navbar.vue'
 import Sidebar from '../components/Sidebar.vue'
 import Main from '../components/Main.vue'
-import axios from 'axios'
 
 export default {
   name: "Home",
@@ -33,11 +32,6 @@ export default {
     closeSidebar(){
         this.sidebarOpen=false;
     }
-  },
-  async created() {
-    const response = await axios.get("dashboard");
-    console.log(response);
-  },
-
+  }
 };
 </script>
