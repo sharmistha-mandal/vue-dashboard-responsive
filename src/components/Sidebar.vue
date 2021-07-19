@@ -3,7 +3,7 @@
     <div class="sidebar__title">
       <div class="sidebar__img">
         <img src="../assets/logo.png" alt="icon" />
-        <h1>RedSnapper</h1>
+        <h1>Demo Template</h1>
       </div>
       <i class="fa fa-times" id="sidebarIcon" aria-hidden="true" @click="$emit('close-btn-clicked')"></i>
     </div>
